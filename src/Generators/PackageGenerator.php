@@ -21,7 +21,23 @@ class PackageGenerator
      *
      * @var string
      */
+    protected $parentPackageName;
+
+    /**
+     * The parent package name
+     *
+     * @var string
+     */
     protected $packageName;
+
+    /**
+     * The name
+     *
+     * @var string
+     */
+    protected $name;
+
+
 
     /**
      * Repository object
@@ -57,7 +73,7 @@ class PackageGenerator
     /**
      * @var boolean
      */
-    protected $type = 'package';
+    protected $type = 'parent-package';
 
     /**
      * Contains subs files information
@@ -65,36 +81,36 @@ class PackageGenerator
      * @var string
      */
     protected $stubFiles = [
-        'package'  => [
-            'views/admin/layouts/style'                  => 'Resources/views/admin/layouts/style.blade.php',
-            'views/admin/index'                          => 'Resources/views/admin/index.blade.php',
-            'views/shop/default/index'                   => 'Resources/views/shop/default/index.blade.php',
-            'views/shop/velocity/index'                  => 'Resources/views/shop/velocity/index.blade.php',
-            'scaffold/admin-menu'                        => 'Config/admin-menu.php',
-            'scaffold/acl'                               => 'Config/acl.php',
-            'assets/js/app'                              => 'Resources/assets/js/app.js',
-            'assets/sass/admin'                          => 'Resources/assets/sass/admin.scss',
-            'assets/sass/default'                        => 'Resources/assets/sass/default.scss',
-            'assets/sass/velocity'                       => 'Resources/assets/sass/velocity.scss',
-            'assets/images/Icon-Temp'                    => 'Resources/assets/images/Icon-Temp.svg',
-            'assets/images/Icon-Temp-Active'             => 'Resources/assets/images/Icon-Temp-Active.svg',
-            'assets/publishable/css/admin'               => '../publishable/assets/css/admin.css',
-            'assets/publishable/css/default'             => '../publishable/assets/css/default.css',
-            'assets/publishable/css/velocity'            => '../publishable/assets/css/velocity.css',
-            'assets/publishable/js/app'                  => '../publishable/assets/js/app.js',
-            'assets/publishable/images/Icon-Temp'        => '../publishable/assets/images/Icon-Temp.svg',
+        'parent-package' => [
+            'views/admin/layouts/style' => 'Resources/views/admin/layouts/style.blade.php',
+            'views/admin/index' => 'Resources/views/admin/index.blade.php',
+            'views/shop/default/index' => 'Resources/views/shop/default/index.blade.php',
+            'views/shop/velocity/index' => 'Resources/views/shop/velocity/index.blade.php',
+            'scaffold/admin-menu' => 'Config/admin-menu.php',
+            'scaffold/acl' => 'Config/acl.php',
+            'assets/js/app' => 'Resources/assets/js/app.js',
+            'assets/sass/admin' => 'Resources/assets/sass/admin.scss',
+            'assets/sass/default' => 'Resources/assets/sass/default.scss',
+            'assets/sass/velocity' => 'Resources/assets/sass/velocity.scss',
+            'assets/images/Icon-Temp' => 'Resources/assets/images/Icon-Temp.svg',
+            'assets/images/Icon-Temp-Active' => 'Resources/assets/images/Icon-Temp-Active.svg',
+            'assets/publishable/css/admin' => '../publishable/assets/css/admin.css',
+            'assets/publishable/css/default' => '../publishable/assets/css/default.css',
+            'assets/publishable/css/velocity' => '../publishable/assets/css/velocity.css',
+            'assets/publishable/js/app' => '../publishable/assets/js/app.js',
+            'assets/publishable/images/Icon-Temp' => '../publishable/assets/images/Icon-Temp.svg',
             'assets/publishable/images/Icon-Temp-Active' => '../publishable/assets/images/Icon-Temp-Active.svg',
-            'webpack'                                    => '../webpack.mix.js',
-            'package'                                    => '../package.json',
+            'webpack' => '../webpack.mix.js',
+            'parent-package' => '../package.json',
         ],
 
-        'payment'  => [
-            'scaffold/paymentmethods'        => 'Config/paymentmethods.php',
+        'payment' => [
+            'scaffold/paymentmethods' => 'Config/paymentmethods.php',
             'scaffold/payment-method-system' => 'Config/system.php',
         ],
 
         'shipping' => [
-            'scaffold/carriers'               => 'Config/carriers.php',
+            'scaffold/carriers' => 'Config/carriers.php',
             'scaffold/shipping-method-system' => 'Config/system.php',
         ]
     ];
@@ -105,35 +121,35 @@ class PackageGenerator
      * @var array
      */
     protected $paths = [
-        'package'  => [
-            'config'     => 'Config',
-            'command'    => 'Console/Commands',
-            'migration'  => 'Database/Migrations',
-            'seeder'     => 'Database/Seeders',
-            'contracts'  => 'Contracts',
-            'model'      => 'Models',
-            'routes'     => 'Http',
+        'parent-package' => [
+            'config' => 'Config',
+            'command' => 'Console/Commands',
+            'migration' => 'Database/Migrations',
+            'seeder' => 'Database/Seeders',
+            'contracts' => 'Contracts',
+            'model' => 'Models',
+            'routes' => 'Http',
             'controller' => 'Http/Controllers',
-            'filter'     => 'Http/Middleware',
-            'request'    => 'Http/Requests',
-            'provider'   => 'Providers',
+            'filter' => 'Http/Middleware',
+            'request' => 'Http/Requests',
+            'provider' => 'Providers',
             'repository' => 'Repositories',
-            'event'      => 'Events',
-            'listener'   => 'Listeners',
-            'emails'     => 'Mail',
-            'assets'     => 'Resources/assets',
-            'lang'       => 'Resources/lang',
-            'views'      => 'Resources/views',
+            'event' => 'Events',
+            'listener' => 'Listeners',
+            'emails' => 'Mail',
+            'assets' => 'Resources/assets',
+            'lang' => 'Resources/lang',
+            'views' => 'Resources/views',
         ],
 
-        'payment'  => [
-            'config'   => 'Config',
-            'payment'  => 'Payment',
+        'payment' => [
+            'config' => 'Config',
+            'payment' => 'Payment',
             'provider' => 'Providers',
         ],
 
         'shipping' => [
-            'config'   => 'Config',
+            'config' => 'Config',
             'carriers' => 'Carriers',
             'provider' => 'Providers',
         ]
@@ -141,7 +157,7 @@ class PackageGenerator
 
     /**
      * The constructor.
-     * 
+     *
      * @param  \Illuminate\Config\Repository  $config
      * @param  \Illuminate\Filesystem\Filesystem  $filesystem
      * @param  \Webkul\PackageGenerator\Package  $package
@@ -150,8 +166,7 @@ class PackageGenerator
         Config $config,
         Filesystem $filesystem,
         Package $package
-    )
-    {
+    ) {
         $this->config = $config;
 
         $this->filesystem = $filesystem;
@@ -160,7 +175,7 @@ class PackageGenerator
     }
 
     /**
-     * Set console 
+     * Set console
      *
      * @param  \Illuminate\Console\Command  $console
      * @return Webkul\PackageGenerator\Generators\PackageGenerator
@@ -168,6 +183,32 @@ class PackageGenerator
     public function setConsole($console)
     {
         $this->console = $console;
+
+        return $this;
+    }
+
+    /**
+     * Set name.
+     *
+     * @param  string  $name
+     * @return Webkul\PackageGenerator\Generators\PackageGenerator
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Set package.
+     *
+     * @param  string  $parentPackageName
+     * @return Webkul\PackageGenerator\Generators\PackageGenerator
+     */
+    public function setParentPackage($parentPackageName)
+    {
+        $this->parentPackageName = $parentPackageName;
 
         return $this;
     }
@@ -244,25 +285,25 @@ class PackageGenerator
      */
     public function generate()
     {
-        if ($this->package->has($this->packageName)) {
+        if ($this->package->has($this->parentPackageName)) {
             if ($this->force) {
-                $this->package->delete($this->packageName);
+                $this->package->delete($this->parentPackageName);
             } else {
-                $this->console->error("Package '{$this->packageName}' already exist !");
+                $this->console->error("Package '{$this->parentPackageName}' already exist !");
 
                 return;
             }
         }
 
-        $this->createFolders();
+//        $this->createFolders();
 
-        if (! $this->plain) {
-            $this->createFiles();
+        if (!$this->plain) {
+//            $this->createFiles();
 
             $this->createClasses();
         }
 
-        $this->console->info("Package '{$this->packageName}' created successfully.");
+        $this->console->info("Package '{$this->parentPackageName}' created successfully.");
     }
 
     /**
@@ -273,7 +314,7 @@ class PackageGenerator
     public function createFolders()
     {
         foreach ($this->paths[$this->type] as $key => $folder) {
-            $path = base_path('packages/' . $this->packageName . '/src') . '/' . $folder;
+            $path = base_path('packages/'.$this->parentPackageName.'/src').'/'.$folder;
 
             $this->filesystem->makeDirectory($path, 0755, true);
         }
@@ -289,9 +330,9 @@ class PackageGenerator
         $variables = $this->getStubVariables();
 
         foreach ($this->stubFiles[$this->type] as $stub => $file) {
-            $path = base_path('packages/' . $this->packageName . '/src') . '/' . $file;
+            $path = base_path('packages/'.$this->parentPackageName.'/src').'/'.$file;
 
-            if (! $this->filesystem->isDirectory($dir = dirname($path))) {
+            if (!$this->filesystem->isDirectory($dir = dirname($path))) {
                 $this->filesystem->makeDirectory($dir, 0775, true);
             }
 
@@ -308,54 +349,66 @@ class PackageGenerator
      */
     public function createClasses()
     {
-        if ($this->type == 'package') {
-            $this->console->call('package:make-provider', [
-                'name'    => $this->packageName . 'ServiceProvider',
+
+        if ($this->type == 'parent-package') {
+            $this->console->call('package:provider', [
+                'name' => $this->name.'ServiceProvider',
+                'parent-package' => $this->parentPackageName,
+            ]);
+
+
+            $this->console->call('package:model', [
+                'name' => $this->name,
+                'parent-package' => $this->parentPackageName,
+            ]);
+
+            $this->console->call('package:repository', [
+                'name' => $this->name,
+                'parent-package' => $this->parentPackageName,
+            ]);
+            $this->console->call('package:request', [
+                'name' => $this->name,
+                'parent-package' => $this->parentPackageName,
                 'package' => $this->packageName,
             ]);
 
-            $this->console->call('package:make-module-provider', [
-                'name'    => 'ModuleServiceProvider',
+            $this->console->call('package:controller', [
+                'name' => $this->name,
+                'parent-package' => $this->parentPackageName,
                 'package' => $this->packageName,
             ]);
 
-            $this->console->call('package:make-admin-controller', [
-                'name'    => $this->packageName . 'Controller',
-                'package' => $this->packageName
-            ]);
 
-            $this->console->call('package:make-shop-controller', [
-                'name'    => $this->packageName . 'Controller',
-                'package' => $this->packageName
-            ]);
 
-            $this->console->call('package:make-admin-route', [
-                'package' => $this->packageName
-            ]);
-
-            $this->console->call('package:make-shop-route', [
-                'package' => $this->packageName
-            ]);
-        } else if ($this->type == 'payment') {
-            $this->console->call('package:make-payment-method-provider', [
-                'name'    => $this->packageName . 'ServiceProvider',
+            $this->console->call('package:route', [
+                'name' => $this->name,
+                'parent-package' => $this->parentPackageName,
                 'package' => $this->packageName,
             ]);
+        } else {
+            if ($this->type == 'payment') {
+                $this->console->call('package:make-payment-method-provider', [
+                    'name' => $this->parentPackageName.'ServiceProvider',
+                    'parent-package' => $this->parentPackageName,
+                ]);
 
-            $this->console->call('package:make-payment', [
-                'name'    => $this->packageName,
-                'package' => $this->packageName,
-            ]);
-        } else if ($this->type == 'shipping') {
-            $this->console->call('package:make-shipping-method-provider', [
-                'name'    => $this->packageName . 'ServiceProvider',
-                'package' => $this->packageName,
-            ]);
+                $this->console->call('package:make-payment', [
+                    'name' => $this->parentPackageName,
+                    'parent-package' => $this->parentPackageName,
+                ]);
+            } else {
+                if ($this->type == 'shipping') {
+                    $this->console->call('package:make-shipping-method-provider', [
+                        'name' => $this->parentPackageName.'ServiceProvider',
+                        'parent-package' => $this->parentPackageName,
+                    ]);
 
-            $this->console->call('package:make-shipping', [
-                'name'    => $this->packageName,
-                'package' => $this->packageName,
-            ]);
+                    $this->console->call('package:make-shipping', [
+                        'name' => $this->parentPackageName,
+                        'parent-package' => $this->parentPackageName,
+                    ]);
+                }
+            }
         }
     }
 
@@ -365,10 +418,10 @@ class PackageGenerator
     protected function getStubVariables()
     {
         return [
-            'LOWER_NAME'      => $this->getLowerName(),
+            'LOWER_NAME' => $this->getLowerName(),
             'CAPITALIZE_NAME' => $this->getCapitalizeName(),
-            'PACKAGE'         => $this->getClassNamespace($this->packageName),
-            'CLASS'           => $this->getClassName(),
+            'PACKAGE' => $this->getClassNamespace($this->parentPackageName),
+            'CLASS' => $this->getClassName(),
         ];
     }
 
@@ -377,7 +430,7 @@ class PackageGenerator
      */
     protected function getClassName()
     {
-        return class_basename($this->packageName);
+        return class_basename($this->parentPackageName);
     }
 
     /**
@@ -398,12 +451,12 @@ class PackageGenerator
      */
     public function getStubContents($stub, $variables = [])
     {
-        $path = __DIR__ . '/../stubs/' . $stub . '.stub';
+        $path = __DIR__.'/../stubs/'.$stub.'.stub';
 
         $contents = file_get_contents($path);
 
         foreach ($variables as $search => $replace) {
-            $contents = str_replace('$' . strtoupper($search) . '$', $replace, $contents);
+            $contents = str_replace('$'.strtoupper($search).'$', $replace, $contents);
         }
 
         return $contents;
@@ -414,7 +467,7 @@ class PackageGenerator
      */
     protected function getCapitalizeName()
     {
-        return ucwords(class_basename($this->packageName));
+        return ucwords(class_basename($this->parentPackageName));
     }
 
     /**
@@ -422,6 +475,6 @@ class PackageGenerator
      */
     protected function getLowerName()
     {
-        return strtolower(class_basename($this->packageName));
+        return strtolower(class_basename($this->parentPackageName));
     }
 }

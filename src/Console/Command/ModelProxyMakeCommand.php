@@ -9,7 +9,7 @@ class ModelProxyMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-model-proxy {name} {package} {--force}';
+    protected $signature = 'package:make-model-proxy {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class ModelProxyMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace($this->argument('package') . '/Models'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Models'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,7 +42,7 @@ class ModelProxyMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/' . $this->argument('package')) . '/src/Models';
+        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Models';
 
         return $path . '/' . $this->getClassName() . '.php';
     }

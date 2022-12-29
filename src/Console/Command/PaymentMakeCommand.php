@@ -9,7 +9,7 @@ class PaymentMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-payment {name} {package} {--force}';
+    protected $signature = 'package:payment {name} {package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class PaymentMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE'  => $this->getClassNamespace($this->argument('package') . '/Payment'),
+            'NAMESPACE'  => $this->getClassNamespace('Webkul/'.$this->argument('package') . '/Payment'),
             'CLASS'      => $this->getClassName(),
             'LOWER_NAME' => $this->getLowerName(),
         ];
@@ -43,7 +43,7 @@ class PaymentMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/' . $this->argument('package')) . '/src/Payment';
+        $path = base_path('packages/Webkul/' . $this->argument('package')) . '/src/Payment';
 
         return $path . '/' . $this->getClassName() . '.php';
     }

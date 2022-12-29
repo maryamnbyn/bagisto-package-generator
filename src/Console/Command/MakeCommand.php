@@ -77,7 +77,7 @@ class MakeCommand extends Command
      */
     public function getStudlyName()
     {
-        return class_basename($this->argument('package'));
+        return class_basename($this->argument('parent-package'));
     }
 
     /**
@@ -85,7 +85,7 @@ class MakeCommand extends Command
      */
     protected function getLowerName()
     {
-        return strtolower(class_basename($this->argument('package')));
+        return strtolower(class_basename($this->argument('parent-package')));
     }
 
     /**

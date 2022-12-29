@@ -9,7 +9,7 @@ class ModelContractMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-model-contract {name} {package} {--force}';
+    protected $signature = 'package:make-model-contract {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class ModelContractMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace($this->argument('package') . '/Contracts'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Contracts'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,7 +42,7 @@ class ModelContractMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/' . $this->argument('package')) . '/src/Contracts';
+        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Contracts';
 
         return $path . '/' . $this->getClassName() . '.php';
     }

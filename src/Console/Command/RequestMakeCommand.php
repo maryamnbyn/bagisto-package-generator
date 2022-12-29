@@ -9,7 +9,7 @@ class RequestMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-request {name} {package} {--force}';
+    protected $signature = 'package:request {name} {parent-package} {package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class RequestMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace($this->argument('package') . '/Http/Requests'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Http/Requests/'.$this->argument('package')),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,8 +42,8 @@ class RequestMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/' . $this->argument('package')) . '/src/Http/Requests';
+        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Http/Requests/'.$this->argument('package');
 
-        return $path . '/' . $this->getClassName() . '.php';
+        return $path . '/' . $this->getClassName() . 'Request.php';
     }
 }

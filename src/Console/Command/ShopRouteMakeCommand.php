@@ -45,7 +45,7 @@ class ShopRouteMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/'.$this->argument('parent-package')).'/src/Routes/V1/'.$this->argument('package');
+        $path = base_path('packages/Webkul/'.$this->argument('parent-package')).'/src/Routes/'.$this->argument('package');
 
         return $path.'/'.$this->argument('name').'-routes.php';
     }

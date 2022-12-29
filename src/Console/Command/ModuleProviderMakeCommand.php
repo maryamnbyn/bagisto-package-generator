@@ -11,7 +11,7 @@ class ModuleProviderMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-module-provider {name} {package} {--force}';
+    protected $signature = 'package:provider {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -34,7 +34,7 @@ class ModuleProviderMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace($this->argument('package') . '/Providers'),
+            'NAMESPACE' => $this->getClassNamespace($this->argument('parent-package') . '/Providers'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -44,7 +44,7 @@ class ModuleProviderMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/' . $this->argument('package')) . '/src/Providers';
+        $path = base_path('packages/' . $this->argument('parent-package')) . '/src/Providers';
 
         return $path . '/' . $this->getClassName() . '.php';
     }

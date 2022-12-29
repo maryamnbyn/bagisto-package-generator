@@ -9,7 +9,7 @@ class ModelMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-model {name} {package} {--force}';
+    protected $signature = 'package:model {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -27,13 +27,13 @@ class ModelMakeCommand extends MakeCommand
 
         $this->call('package:make-model-proxy', [
             'name'    => $this->argument('name') . 'Proxy',
-            'package' => $this->argument('package'),
+            'parent-package' => $this->argument('parent-package'),
             '--force' => $this->option('force'),
         ]);
 
         $this->call('package:make-model-contract', [
             'name'    => $this->argument('name'),
-            'package' => $this->argument('package'),
+            'parent-package' => $this->argument('parent-package'),
             '--force' => $this->option('force'),
         ]);
     }
@@ -52,8 +52,8 @@ class ModelMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'PACKAGE'   => $this->getClassNamespace($this->argument('package')),
-            'NAMESPACE' => $this->getClassNamespace($this->argument('package') . '/Models'),
+            'PACKAGE'   => $this->getClassNamespace($this->argument('parent-package')),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Models'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -63,7 +63,7 @@ class ModelMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/' . $this->argument('package')) . '/src/Models';
+        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Models';
 
         return $path . '/' . $this->getClassName() . '.php';
     }

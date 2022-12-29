@@ -34,7 +34,7 @@ class ShopControllerMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('package') . '/src/Http/Controllers/'.$this->argument('package')),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Http/Controllers/'.$this->argument('package')),
             'CLASS'     => $this->argument('name').'Controller',
         ];
     }

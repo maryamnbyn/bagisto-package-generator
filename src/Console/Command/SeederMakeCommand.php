@@ -9,7 +9,7 @@ class SeederMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-seeder {name} {package} {--force}';
+    protected $signature = 'package:seeder {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class SeederMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace($this->argument('package') . '/Database/Seeders'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Database/Seeders'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,9 +42,9 @@ class SeederMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/' . $this->argument('package')) . '/src/Database/Seeders';
+        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Database/Seeders';
 
-        return $path . '/' . $this->getClassName() . '.php';
+        return $path . '/' . $this->getClassName() . 'TableSeeder.php';
     }
     
 }

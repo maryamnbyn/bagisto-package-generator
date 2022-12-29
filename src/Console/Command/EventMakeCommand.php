@@ -9,7 +9,7 @@ class EventMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-event {name} {package} {--force}';
+    protected $signature = 'package:event {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class EventMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace($this->argument('package') . '/Events'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Events'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,8 +42,8 @@ class EventMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/' . $this->argument('package')) . '/src/Events';
+        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Events';
 
-        return $path . '/' . $this->getClassName() . '.php';
+        return $path . '/' . $this->getClassName() . 'Event.php';
     }
 }

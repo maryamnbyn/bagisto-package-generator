@@ -65,10 +65,8 @@ class PackageGeneratorServiceProvider extends ServiceProvider
             $this->commands([
                 PackageMakeCommand::class,
                 ProviderMakeCommand::class,
-                ModuleProviderMakeCommand::class,
-                AdminControllerMakeCommand::class,
+//                ModuleProviderMakeCommand::class,
                 ShopControllerMakeCommand::class,
-                AdminRouteMakeCommand::class,
                 ShopRouteMakeCommand::class,
                 MigrationMakeCommand::class,
                 ModelMakeCommand::class,
