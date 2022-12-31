@@ -51,6 +51,6 @@ class ProviderMakeCommand extends MakeCommand
     {
         $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Providers';
 
-        return $path . '/' . $this->getClassName() . 'ServiceProvider.php';
+        return $path . '/' . $this->getClassName() . '.php';
     }
 }

@@ -2,23 +2,24 @@
 
 namespace Webkul\PackageGenerator\Console\Command;
 
+use Illuminate\Support\Str;
 use Webkul\PackageGenerator\Generators\PackageGenerator;
 
-class PackageMakeCommand extends MakeCommand
+class ShopRouteDependencyMakeCommand extends MakeCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:all {name} {parent-package?} {package?} {--plain}  {--force}';
+    protected $signature = 'bagisto:make:route {name} {package}  {--force}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new package.';
+    protected $description = 'Create a new shop route file.';
 
     /**
      * Execute the console command.
@@ -27,10 +28,9 @@ class PackageMakeCommand extends MakeCommand
     {
         $this->packageGenerator->setConsole($this)
             ->setName($this->argument('name'))
-            ->setParentPackage($this->argument('parent-package'))
+            ->setParentPackage('RestApi')
             ->setPackage($this->argument('package'))
-            ->setPlain($this->option('plain'))
             ->setForce($this->option('force'))
-            ->generate();
+            ->generate('route');
     }
 }

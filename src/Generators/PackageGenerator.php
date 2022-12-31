@@ -283,7 +283,7 @@ class PackageGenerator
      *
      * @return void
      */
-    public function generate()
+    public function generate($option = null)
     {
         if ($this->package->has($this->parentPackageName)) {
             if ($this->force) {
@@ -297,10 +297,12 @@ class PackageGenerator
 
 //        $this->createFolders();
 
-        if (!$this->plain) {
+        if (!$this->plain && empty($option)) {
 //            $this->createFiles();
 
             $this->createClasses();
+        } else {
+            $this->createRouteClasses();
         }
 
         $this->console->info("Package '{$this->parentPackageName}' created successfully.");
@@ -368,21 +370,16 @@ class PackageGenerator
             ]);
             $this->console->call('bagisto:make:request', [
                 'name' => $this->name,
-                'parent-package' => $this->parentPackageName,
                 'package' => $this->packageName,
             ]);
 
             $this->console->call('bagisto:make:controller', [
                 'name' => $this->name,
-                'parent-package' => $this->parentPackageName,
                 'package' => $this->packageName,
             ]);
 
-
-
             $this->console->call('bagisto:make:route', [
                 'name' => $this->name,
-                'parent-package' => $this->parentPackageName,
                 'package' => $this->packageName,
             ]);
         } else {
@@ -410,6 +407,29 @@ class PackageGenerator
                 }
             }
         }
+    }
+
+    /**
+     * Generate package classes
+     *
+     * @return void
+     */
+    public function createRouteClasses()
+    {
+        $this->console->call('bagisto:make:request', [
+            'name' => $this->name,
+            'package' => $this->packageName,
+        ]);
+
+        $this->console->call('bagisto:make:controller', [
+            'name' => $this->name,
+            'package' => $this->packageName,
+        ]);
+
+        $this->console->call('bagisto:route', [
+            'name' => 'api',
+            'parent-package' => $this->packageName,
+        ]);
     }
 
     /**

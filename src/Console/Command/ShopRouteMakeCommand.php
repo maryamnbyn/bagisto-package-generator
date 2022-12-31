@@ -12,7 +12,7 @@ class ShopRouteMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:route {name} {parent-package} {package} {--force}';
+    protected $signature = 'bagisto:route {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -35,8 +35,8 @@ class ShopRouteMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'CONTROLLER_CLASS_NAME' => '',
-            'LOWER_NAME' => $this->getLowerName(),
+            'CONTROLLER_CLASS_NAME' =>$this->getClassNamespace('Webkul/RestApi/Http/Controllers/' .$this->argument('parent-package').'/' .  $this->getStudlyName() . 'Controller'),
+            'LOWER_NAME'            => $this->getLowerName(),
         ];
     }
 
@@ -45,8 +45,8 @@ class ShopRouteMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/'.$this->argument('parent-package')).'/src/Routes/'.$this->argument('package');
+        $path = base_path('packages/Webkul/RestApi/src/Routes/'.$this->argument('parent-package'));
 
-        return $path.'/'.$this->argument('name').'-routes.php';
+        return $path.'/'.$this->argument('name').'.php';
     }
 }

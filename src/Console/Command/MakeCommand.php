@@ -83,9 +83,9 @@ class MakeCommand extends Command
     /**
      * @return string
      */
-    protected function getLowerName()
+    protected function getLowerName($argument=null)
     {
-        return strtolower(class_basename($this->argument('parent-package')));
+        return strtolower(class_basename($argument ?? $this->argument('parent-package')));
     }
 
     /**

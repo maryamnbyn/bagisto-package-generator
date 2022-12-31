@@ -11,7 +11,7 @@ class ShopControllerMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:controller {name} {parent-package} {package} {--force}';
+    protected $signature = 'bagisto:make:controller {name} {package} {--force}';
 
     /**
      * The console command description.
@@ -34,7 +34,7 @@ class ShopControllerMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Http/Controllers/'.$this->argument('package')),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/RestApi/Http/Controllers/'.$this->argument('package')),
             'CLASS'     => $this->argument('name').'Controller',
         ];
     }
@@ -44,7 +44,8 @@ class ShopControllerMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Http/Controllers/'.$this->argument('package');
+        $path = base_path('packages/Webkul/RestApi/src/Http/Controllers/'.$this->argument('package'));
+
 
         return $path . '/' . $this->getClassName() . 'Controller.php';
     }

@@ -9,6 +9,7 @@ use Webkul\PackageGenerator\Console\Command\ModuleProviderMakeCommand;
 use Webkul\PackageGenerator\Console\Command\AdminControllerMakeCommand;
 use Webkul\PackageGenerator\Console\Command\ShopControllerMakeCommand;
 use Webkul\PackageGenerator\Console\Command\AdminRouteMakeCommand;
+use Webkul\PackageGenerator\Console\Command\ShopRouteDependencyMakeCommand;
 use Webkul\PackageGenerator\Console\Command\ShopRouteMakeCommand;
 use Webkul\PackageGenerator\Console\Command\MigrationMakeCommand;
 use Webkul\PackageGenerator\Console\Command\ModelMakeCommand;
@@ -67,6 +68,7 @@ class PackageGeneratorServiceProvider extends ServiceProvider
                 ProviderMakeCommand::class,
                 ShopControllerMakeCommand::class,
                 ShopRouteMakeCommand::class,
+                ShopRouteDependencyMakeCommand::class,
                 MigrationMakeCommand::class,
                 ModelMakeCommand::class,
                 RepositoryMakeCommand::class,
