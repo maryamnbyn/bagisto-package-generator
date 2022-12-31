@@ -9,7 +9,7 @@ class MiddlewareMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:middleware {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:middleware {name} {parent-package} {--force}';
 
     /**
      * The console command description.

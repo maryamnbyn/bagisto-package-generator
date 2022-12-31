@@ -65,13 +65,10 @@ class PackageGeneratorServiceProvider extends ServiceProvider
             $this->commands([
                 PackageMakeCommand::class,
                 ProviderMakeCommand::class,
-//                ModuleProviderMakeCommand::class,
                 ShopControllerMakeCommand::class,
                 ShopRouteMakeCommand::class,
                 MigrationMakeCommand::class,
                 ModelMakeCommand::class,
-                ModelProxyMakeCommand::class,
-                ModelContractMakeCommand::class,
                 RepositoryMakeCommand::class,
                 SeederMakeCommand::class,
                 MailMakeCommand::class,
@@ -88,8 +85,6 @@ class PackageGeneratorServiceProvider extends ServiceProvider
                 ShippingPackageMakeCommand::class,
                 ShippingMethodProviderMakeCommand::class,
                 ShippingMakeCommand::class,
-                ShopThemeMakeCommand::class,
-                AdminThemeMakeCommand::class,
             ]);
         }
     }

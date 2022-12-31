@@ -11,7 +11,7 @@ class PackageMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make {name} {parent-package} {package} {--plain}  {--force}';
+    protected $signature = 'bagisto:make:all {name} {parent-package} {package?} {--plain}  {--force}';
 
     /**
      * The console command description.

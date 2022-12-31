@@ -11,7 +11,7 @@ class ModuleProviderMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:provider {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:provider {name} {parent-package} {--force}';
 
     /**
      * The console command description.

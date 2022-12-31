@@ -12,7 +12,7 @@ class ShopRouteMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:route {name} {parent-package} {package} {--force}';
+    protected $signature = 'bagisto:make:route {name} {parent-package} {package} {--force}';
 
     /**
      * The console command description.

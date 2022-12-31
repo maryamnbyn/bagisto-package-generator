@@ -9,7 +9,7 @@ class ListenerMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:listener {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:listener {name} {parent-package} {--force}';
 
     /**
      * The console command description.

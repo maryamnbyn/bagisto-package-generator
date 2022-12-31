@@ -351,59 +351,59 @@ class PackageGenerator
     {
 
         if ($this->type == 'parent-package') {
-            $this->console->call('package:provider', [
+            $this->console->call('bagisto:make:provider', [
                 'name' => $this->name.'ServiceProvider',
                 'parent-package' => $this->parentPackageName,
             ]);
 
 
-            $this->console->call('package:model', [
+            $this->console->call('bagisto:make:model', [
                 'name' => $this->name,
                 'parent-package' => $this->parentPackageName,
             ]);
 
-            $this->console->call('package:repository', [
+            $this->console->call('bagisto:make:repository', [
                 'name' => $this->name,
                 'parent-package' => $this->parentPackageName,
             ]);
-            $this->console->call('package:request', [
-                'name' => $this->name,
-                'parent-package' => $this->parentPackageName,
-                'package' => $this->packageName,
-            ]);
-
-            $this->console->call('package:controller', [
+            $this->console->call('bagisto:make:request', [
                 'name' => $this->name,
                 'parent-package' => $this->parentPackageName,
                 'package' => $this->packageName,
             ]);
 
+            $this->console->call('bagisto:make:controller', [
+                'name' => $this->name,
+                'parent-package' => $this->parentPackageName,
+                'package' => $this->packageName,
+            ]);
 
 
-            $this->console->call('package:route', [
+
+            $this->console->call('bagisto:make:route', [
                 'name' => $this->name,
                 'parent-package' => $this->parentPackageName,
                 'package' => $this->packageName,
             ]);
         } else {
             if ($this->type == 'payment') {
-                $this->console->call('package:make-payment-method-provider', [
+                $this->console->call('bagisto:make-payment-method-provider', [
                     'name' => $this->parentPackageName.'ServiceProvider',
                     'parent-package' => $this->parentPackageName,
                 ]);
 
-                $this->console->call('package:make-payment', [
+                $this->console->call('bagisto:make-payment', [
                     'name' => $this->parentPackageName,
                     'parent-package' => $this->parentPackageName,
                 ]);
             } else {
                 if ($this->type == 'shipping') {
-                    $this->console->call('package:make-shipping-method-provider', [
+                    $this->console->call('bagisto:make-shipping-method-provider', [
                         'name' => $this->parentPackageName.'ServiceProvider',
                         'parent-package' => $this->parentPackageName,
                     ]);
 
-                    $this->console->call('package:make-shipping', [
+                    $this->console->call('bagisto:make-shipping', [
                         'name' => $this->parentPackageName,
                         'parent-package' => $this->parentPackageName,
                     ]);

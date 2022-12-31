@@ -12,7 +12,7 @@ class ProviderMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:provider {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:provider {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -36,6 +36,7 @@ class ProviderMakeCommand extends MakeCommand
      */
     protected function getStubVariables()
     {
+
         return [
             'NAMESPACE'  => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Providers'),
             'CLASS'      => $this->getClassName(),
@@ -50,6 +51,6 @@ class ProviderMakeCommand extends MakeCommand
     {
         $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Providers';
 
-        return $path . '/' . $this->getClassName() . '.php';
+        return $path . '/' . $this->getClassName() . 'ServiceProvider.php';
     }
 }

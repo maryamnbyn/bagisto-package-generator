@@ -9,7 +9,7 @@ class MigrationMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:migration {name} {parent-package}';
+    protected $signature = 'bagisto:make:migration {name} {parent-package}';
 
     /**
      * The console command description.

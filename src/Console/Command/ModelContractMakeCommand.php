@@ -9,7 +9,7 @@ class ModelContractMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-model-contract {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:model-contract {name} {parent-package} {--force}';
 
     /**
      * The console command description.

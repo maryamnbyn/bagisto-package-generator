@@ -9,7 +9,7 @@ class RequestMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:request {name} {parent-package} {package} {--force}';
+    protected $signature = 'bagisto:make:request {name} {parent-package} {package} {--force}';
 
     /**
      * The console command description.
@@ -33,7 +33,7 @@ class RequestMakeCommand extends MakeCommand
     {
         return [
             'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Http/Requests/'.$this->argument('package')),
-            'CLASS'     => $this->getClassName(),
+            'CLASS'     => $this->getClassName().'Request',
         ];
     }
 

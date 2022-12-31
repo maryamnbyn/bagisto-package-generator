@@ -9,7 +9,7 @@ class MailMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:mail {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:mail {name} {parent-package} {--force}';
 
     /**
      * The console command description.

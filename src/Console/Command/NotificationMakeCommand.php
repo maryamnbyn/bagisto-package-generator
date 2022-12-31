@@ -9,7 +9,7 @@ class NotificationMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:notification {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:notification {name} {parent-package} {--force}';
 
     /**
      * The console command description.

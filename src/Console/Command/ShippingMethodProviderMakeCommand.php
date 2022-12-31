@@ -12,7 +12,7 @@ class ShippingMethodProviderMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-shipping-method-provider {name} {package} {--force}';
+    protected $signature = 'bagisto:make-shipping-method-provider {name} {package} {--force}';
 
     /**
      * The console command description.

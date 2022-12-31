@@ -30,37 +30,33 @@ After setting up, you will see that there are list of package commands which hel
 
 Below are the list of commands,
 
-| S. No. | Commands                               | Info                                                                                                            | Required Arguments                     | Optional Arguments  |
-| :----- | :------------------------------------- | :-------------------------------------------------------------------------------------------------------------- | :------------------------------------- | :------------------ |
-| 01.    | package:make                           | [Create a new package.](#1-create-a-new-package)                                                                |  package-name                          | --force, --plain    |
-| 02.    | package:make-admin-controller          | [Create a new admin controller.](#2-create-a-new-admin-controller)                                              |  controller-name, package-name         | --force             |
-| 03.    | package:make-admin-route               | [Create a new admin routes file.](#3-create-a-new-admin-routes-file)                                            |  package-name                          | --force             |
-| 04.    | package:make-shop-controller           | [Create a new shop controller.](#4-create-a-new-shop-controller)                                                |  controller-name, package-name         | --force             |
-| 05.    | package:make-shop-route                | [Create a new shop routes file.](#5-create-a-new-shop-routes-file)                                              |  package-name                          | --force             |
-| 06.    | package:make-model                     | [Create a new model class.](#6-create-a-new-model-class)                                                        |  model-name, package-name              | --force             |
-| 07.    | package:make-model-proxy               | [Create a new model proxy class.](#7-create-a-new-model-proxy-class)                                            |  model-proxy-name, package-name        | --force             |
-| 08.    | package:make-model-contract            | [Create a new model contract.](#8-create-a-new-model-contract)                                                  |  model-contract-name, package-name     | --force             |
-| 09.    | package:make-migration                 | [Create a new migration class.](#9-create-a-new-migration-class)                                                |  migration-name, package-name          |                     |
-| 10.    | package:make-seeder                    | [Create a new seeder class.](#10-create-a-new-seeder-class)                                                     |  seeder-name, package-name             | --force             |
-| 11.    | package:make-request                   | [Create a new request class.](#11-create-a-new-request-class)                                                   |  request-name, package-name            | --force             |
-| 12.    | package:make-middleware                | [Create a new middleware class.](#12-create-a-new-middleware-class)                                             |  middleware-name, package-name         | --force             |
-| 13.    | package:make-datagrid                  | [Create a new datagrid class.](#13-create-a-new-datagrid-class)                                                 |  datagrid-name, package-name           | --force             |
-| 14.    | package:make-repository                | [Create a new repository class.](#14-create-a-new-repository-class)                                             |  repository-name, package-name         | --force             |
-| 15.    | package:make-provider                  | [Create a new service provider class.](#15-create-a-new-service-provider-class)                                 |  provider-name, package-name           | --force             |
-| 16.    | package:make-event                     | [Create a new event class.](#16-create-a-new-event-class)                                                       |  event-name, package-name              | --force             |
-| 17.    | package:make-listener                  | [Create a new listener class.](#17-create-a-new-listener-class)                                                 |  listener-name, package-name           | --force             |
-| 18.    | package:make-notification              | [Create a new notification class.](#18-create-a-new-notification-class)                                         |  notification-name, package-name       | --force             |
-| 19.    | package:make-mail                      | [Create a new mail class.](#19-create-a-new-mail-class)                                                         |  mail-name, package-name               | --force             |
-| 20.    | package:make-command                   | [Create a new command class.](#20-create-a-new-command-class)                                                   |  command-name, package-name            | --force             |
-| 21.    | package:make-payment                   | [Create a new payment class.](#21-create-a-new-payment-class)                                                   |  payment-name, package-name            | --force             |
-| 22.    | package:make-shipping                  | [Create a new shipping class.](#22-create-a-new-shipping-class)                                                 |  shipping-name, package-name           | --force             |
-| 23.    | package:make-module-provider           | [Create a new module service provider class.](#23-create-a-new-module-service-provider-class)                   |  provider-name, package-name           | --force             |
-| 24.    | package:make-payment-method            | [Create a new payment method package.](#24-create-a-new-payment-method-package)                                 |  payment-package-name                  | --force             |
-| 25.    | package:make-payment-method-provider   | [Create a new payment method service provider class.](#25-create-a-new-payment-method-service-provider-class)   |  provider-name, payment-package-name   | --force             |
-| 26.    | package:make-shipping-method           | [Create a new shipping method package.](#26-create-a-new-shipping-method-package)                               |  shipment-package-name                 | --force             |
-| 27.    | package:make-shipping-method-provider  | [Create a new shipping method service provider class.](#27-create-a-new-shipping-method-service-provider-class) |  provider-name, shipment-package-name  | --force             |
-| 28.    | create-a-new-theme-for-shop  | [Create a new theme for shop.](#28-create-a-new-theme-for-shop) |  theme-name  | --force             |
-| 29.    | create-a-new-theme-for-admin  | [Create a new theme for admin.](#29-create-a-new-theme-for-admin) |  theme-name  | --force             |
+| S. No. | Commands                              | Info                                                                                                            | Required Arguments                     | Optional Arguments  |
+|:-------|:--------------------------------------| :-------------------------------------------------------------------------------------------------------------- | :------------------------------------- | :------------------ |
+| 01.    | bagisto:make:all                      | [Create a new package.](#1-create-a-new-package)                                                                |  package-name                          | --force, --plain    |
+| 02.    | bagisto:make:controller               | [Create a new shop controller.](#4-create-a-new-shop-controller)                                                |  controller-name, package-name         | --force             |
+| 03.    | bagisto:make:route                    | [Create a new shop routes file.](#5-create-a-new-shop-routes-file)                                              |  package-name                          | --force             |
+| 04.    | bagisto:make:model                    | [Create a new model class.](#6-create-a-new-model-class)                                                        |  model-name, package-name              | --force             |
+| 05.    | bagisto:model-proxy                   | [Create a new model proxy class.](#7-create-a-new-model-proxy-class)                                            |  model-proxy-name, package-name        | --force             |
+| 06.    | bagisto:model-contract                | [Create a new model contract.](#8-create-a-new-model-contract)                                                  |  model-contract-name, package-name     | --force             |
+| 07.    | bagisto:make:migration                | [Create a new migration class.](#9-create-a-new-migration-class)                                                |  migration-name, package-name          |                     |
+| 08.    | bagisto:make:seeder                   | [Create a new seeder class.](#10-create-a-new-seeder-class)                                                     |  seeder-name, package-name             | --force             |
+| 09.    | bagisto:make:request                  | [Create a new request class.](#11-create-a-new-request-class)                                                   |  request-name, package-name            | --force             |
+| 10.    | bagisto:make:middleware               | [Create a new middleware class.](#12-create-a-new-middleware-class)                                             |  middleware-name, package-name         | --force             |
+| 11.    | bagisto:make:datagrid                 | [Create a new datagrid class.](#13-create-a-new-datagrid-class)                                                 |  datagrid-name, package-name           | --force             |
+| 12.    | bagisto:make:repository               | [Create a new repository class.](#14-create-a-new-repository-class)                                             |  repository-name, package-name         | --force             |
+| 13.    | bagisto:make:provider                 | [Create a new service provider class.](#15-create-a-new-service-provider-class)                                 |  provider-name, package-name           | --force             |
+| 14.    | bagisto:make:event                    | [Create a new event class.](#16-create-a-new-event-class)                                                       |  event-name, package-name              | --force             |
+| 15.    | bagisto:make:listener                 | [Create a new listener class.](#17-create-a-new-listener-class)                                                 |  listener-name, package-name           | --force             |
+| 16.    | bagisto:make:notification             | [Create a new notification class.](#18-create-a-new-notification-class)                                         |  notification-name, package-name       | --force             |
+| 17.    | bagisto:make:mail                     | [Create a new mail class.](#19-create-a-new-mail-class)                                                         |  mail-name, package-name               | --force             |
+| 18.    | bagisto:make:command                  | [Create a new command class.](#20-create-a-new-command-class)                                                   |  command-name, package-name            | --force             |
+| 19.    | bagisto:payment                       | [Create a new payment class.](#21-create-a-new-payment-class)                                                   |  payment-name, package-name            | --force             |
+| 20.    | bagisto:shipping                      | [Create a new shipping class.](#22-create-a-new-shipping-class)                                                 |  shipping-name, package-name           | --force             |
+| 21.    | bagisto:make-module-provider          | [Create a new module service provider class.](#23-create-a-new-module-service-provider-class)                   |  provider-name, package-name           | --force             |
+| 22.    | bagisto:make-payment-method           | [Create a new payment method package.](#24-create-a-new-payment-method-package)                                 |  payment-package-name                  | --force             |
+| 23.    | bagisto:make-payment-method-provider  | [Create a new payment method service provider class.](#25-create-a-new-payment-method-service-provider-class)   |  provider-name, payment-package-name   | --force             |
+| 24.    | bagisto:make-shipping-method          | [Create a new shipping method package.](#26-create-a-new-shipping-method-package)                               |  shipment-package-name                 | --force             |
+| 25.    | bagisto:make-shipping-method-provider | [Create a new shipping method service provider class.](#27-create-a-new-shipping-method-service-provider-class) |  provider-name, shipment-package-name  | --force             |
 
 
 **--force** : To overwrite the files
@@ -73,26 +69,10 @@ Below are the list of commands,
 
 #### 1. Create a new package
 
-This command will generate all the necessary files which previously you create manually for your package.
+For e.g., If you want to create a package which named as '**TestPackage**', and all dependency then you need to use the command like this,
 
 ~~~php
-php artisan package:make ACME/TestPackage
-~~~
-
-For e.g., If you want to create a package which named as '**TestPackage**', then you need to use the command like this,
-
-~~~php
-php artisan package:make ACME/TestPackage
-~~~
-
-This will create whole directory structure for you automatically so that you don't want to do manually like registering routes, views, etc.
-
-##### New package with just directory structure
-
-If you want to do things manually only need folder structures, then there is a optional argument known as '**plain**'. Below is the sample,
-
-~~~php
-php artisan package:make ACME/TestPackage --plain
+php artisan bagisto:make:all name parent-package ACME/TestPackage
 ~~~
 
 ##### New package with force command
@@ -100,47 +80,16 @@ php artisan package:make ACME/TestPackage --plain
 If somehow folder or package is already present, then simple command won't work. So to overcome this problem we need to use force command.
 
 ~~~php
-php artisan package:make ACME/TestPackage --force
+php artisan bagisto:make:all ACME/TestPackage --force
 ~~~
 
-#### 2. Create a new admin controller
-
-This command will generate a new controller for your admin portion.
-
-~~~php
-php artisan package:make-admin-controller AdminTestController ACME/TestPackage
-~~~
-
-##### Create a new admin controller with force command
-
-If controller is already present, then you need to use the force command.
-
-~~~php
-php artisan package:make-admin-controller AdminTestController ACME/TestPackage --force
-~~~
-
-#### 3. Create a new admin routes file
-
-If you want to create an admin route, then you need to use this command and then register your routes file in the service provider i.e. '**ACME\TestPackage\Providers\TestPackageServiceProvider**'.
-
-~~~php
-php artisan package:make-admin-route ACME/TestPackage
-~~~
-
-##### Create a new admin routes file with force command
-
-If admin routes file already present and you want to override this, then you need to use force command.
-
-~~~php
-php artisan package:make-admin-route ACME/TestPackage --force
-~~~
 
 #### 4. Create a new shop controller
 
 This command will generate a new controller for your shop portion i.e. '**packages/ACME/TestPackage/src/Http/Controllers/Shop**'.
 
 ~~~php
-php artisan package:make-shop-controller ShopTestController ACME/TestPackage
+php artisan bagisto:make-shop-controller ShopTestController ACME/TestPackage
 ~~~
 
 ##### Create a new shop controller with force command
@@ -148,7 +97,7 @@ php artisan package:make-shop-controller ShopTestController ACME/TestPackage
 If controller is already present, then you need to use the force command.
 
 ~~~php
-php artisan package:make-shop-controller ShopTestController ACME/TestPackage --force
+php artisan bagisto:make-shop-controller ShopTestController ACME/TestPackage --force
 ~~~
 
 #### 5. Create a new shop routes file
@@ -156,7 +105,7 @@ php artisan package:make-shop-controller ShopTestController ACME/TestPackage --f
 If you want to create a shop route, then you need to use this command and then register your routes file in the service provider i.e. 'ACME\TestPackage\Providers\TestPackageServiceProvider'.
 
 ~~~php
-php artisan package:make-shop-route ACME/TestPackage
+php artisan bagisto:make-shop-route ACME/TestPackage
 ~~~
 
 ##### Create a new shop routes file with force command
@@ -164,7 +113,7 @@ php artisan package:make-shop-route ACME/TestPackage
 If shop routes file already present and you want to override this, then you need to use force command.
 
 ~~~php
-php artisan package:make-shop-route ACME/TestPackage --force
+php artisan bagisto:make-shop-route ACME/TestPackage --force
 ~~~
 
 #### 6. Create a new model class
@@ -176,7 +125,7 @@ This command will create a following files,
 * New model contract in '**packages/ACME/TestPackage/src/Contracts**' directory.
 
 ~~~php
-php artisan package:make-model TestModel ACME/TestPackage
+php artisan bagisto:make-model TestModel ACME/TestPackage
 ~~~
 
 ##### Create a new model with force command
@@ -184,7 +133,7 @@ php artisan package:make-model TestModel ACME/TestPackage
 This command will overwrite all three files.
 
 ~~~php
-php artisan package:make-model TestModel ACME/TestPackage --force
+php artisan bagisto:make-model TestModel ACME/TestPackage --force
 ~~~
 
 #### 7. Create a new model proxy class
@@ -192,7 +141,7 @@ php artisan package:make-model TestModel ACME/TestPackage --force
 This command will create a new model proxy class in '**packages/ACME/TestPackage/src/Models**' directory.
 
 ~~~php
-php artisan package:make-model-proxy TestModelProxy ACME/TestPackage
+php artisan bagisto:make-model-proxy TestModelProxy ACME/TestPackage
 ~~~
 
 ##### Create a new model proxy with force command
@@ -200,7 +149,7 @@ php artisan package:make-model-proxy TestModelProxy ACME/TestPackage
 If model proxy class already present then you can use force command for overwriting.
 
 ~~~php
-php artisan package:make-model-proxy TestModelProxy ACME/TestPackage --force
+php artisan bagisto:make-model-proxy TestModelProxy ACME/TestPackage --force
 ~~~
 
 #### 8. Create a new model contract
@@ -208,7 +157,7 @@ php artisan package:make-model-proxy TestModelProxy ACME/TestPackage --force
 This command will create a new model contract in '**packages/ACME/TestPackage/src/Contracts**' directory.
 
 ~~~php
-php artisan package:make-model-contract TestContract ACME/TestPackage
+php artisan bagisto:make-model-contract TestContract ACME/TestPackage
 ~~~
 
 ##### Create a new model contract with force command
@@ -216,7 +165,7 @@ php artisan package:make-model-contract TestContract ACME/TestPackage
 If model contract already present then you can use force command for overwriting.
 
 ~~~php
-php artisan package:make-model-contract TestDataGrid ACME/TestPackage --force
+php artisan bagisto:make-model-contract TestDataGrid ACME/TestPackage --force
 ~~~
 
 #### 9. Create a new migration class
@@ -224,7 +173,7 @@ php artisan package:make-model-contract TestDataGrid ACME/TestPackage --force
 This command will create a new migration class in '**packages/ACME/TestPackage/src/Database/Migrations**' directory.
 
 ~~~php
-php artisan package:make-migration TestMigration ACME/TestPackage
+php artisan bagisto:make-migration TestMigration ACME/TestPackage
 ~~~
 
 #### 10. Create a new seeder class
@@ -232,7 +181,7 @@ php artisan package:make-migration TestMigration ACME/TestPackage
 This command will create a new seeder class in '**packages/ACME/TestPackage/src/Database/Seeders**' directory.
 
 ~~~php
-php artisan package:make-seeder TestSeeder ACME/TestPackage
+php artisan bagisto:make-seeder TestSeeder ACME/TestPackage
 ~~~
 
 ##### Create a new seeder class with force command
@@ -240,7 +189,7 @@ php artisan package:make-seeder TestSeeder ACME/TestPackage
 If seeder class already present then you can use force command for overwriting.
 
 ~~~php
-php artisan package:make-seeder TestSeeder ACME/TestPackage --force
+php artisan bagisto:make-seeder TestSeeder ACME/TestPackage --force
 ~~~
 
 #### 11. Create a new request class
@@ -248,7 +197,7 @@ php artisan package:make-seeder TestSeeder ACME/TestPackage --force
 This command will create a new request class in '**packages/ACME/TestPackage/src/Http/Requests**' directory.
 
 ~~~php
-php artisan package:make-request TestRequest ACME/TestPackage
+php artisan bagisto:make-request TestRequest ACME/TestPackage
 ~~~
 
 ##### Create a new request class with force command
@@ -256,7 +205,7 @@ php artisan package:make-request TestRequest ACME/TestPackage
 If request class already present then you can use force command for overwriting.
 
 ~~~php
-php artisan package:make-request TestRequest ACME/TestPackage --force
+php artisan bagisto:make-request TestRequest ACME/TestPackage --force
 ~~~
 
 #### 12. Create a new middleware class
@@ -264,7 +213,7 @@ php artisan package:make-request TestRequest ACME/TestPackage --force
 This command will create a new middleware class in '**packages/ACME/TestPackage/src/Http/Middleware**' directory.
 
 ~~~php
-php artisan package:make-middleware TestMiddleware ACME/TestPackage
+php artisan bagisto:make-middleware TestMiddleware ACME/TestPackage
 ~~~
 
 ##### Create a new middleware class with force command
@@ -272,7 +221,7 @@ php artisan package:make-middleware TestMiddleware ACME/TestPackage
 If middleware class already present then you can use force command for overwriting.
 
 ~~~php
-php artisan package:make-middleware TestMiddleware ACME/TestPackage --force
+php artisan bagisto:make-middleware TestMiddleware ACME/TestPackage --force
 ~~~
 
 #### 13. Create a new datagrid class
@@ -280,7 +229,7 @@ php artisan package:make-middleware TestMiddleware ACME/TestPackage --force
 This command will create a new data grid class in '**packages/ACME/TestPackage/src/Datagrids**' directory.
 
 ~~~php
-php artisan package:make-datagrid TestDataGrid ACME/TestPackage
+php artisan bagisto:make-datagrid TestDataGrid ACME/TestPackage
 ~~~
 
 ##### Create a new datagrid class with force command
@@ -288,7 +237,7 @@ php artisan package:make-datagrid TestDataGrid ACME/TestPackage
 If data grid class already present then you can use force command for overwriting.
 
 ~~~php
-php artisan package:make-datagrid TestDataGrid ACME/TestPackage --force
+php artisan bagisto:make-datagrid TestDataGrid ACME/TestPackage --force
 ~~~
 
 #### 14. Create a new repository class
@@ -296,7 +245,7 @@ php artisan package:make-datagrid TestDataGrid ACME/TestPackage --force
 This command will create a new repository class in '**packages/ACME/TestPackage/src/Repositories**' directory.
 
 ~~~php
-php artisan package:make-repository TestRepository ACME/TestPackage
+php artisan bagisto:make-repository TestRepository ACME/TestPackage
 ~~~
 
 ##### Create a new repository with force command
@@ -304,7 +253,7 @@ php artisan package:make-repository TestRepository ACME/TestPackage
 If repository class already present then you can use force command for overwriting.
 
 ~~~php
-php artisan package:make-repository TestRepository ACME/TestPackage --force
+php artisan bagisto:make-repository TestRepository ACME/TestPackage --force
 ~~~
 
 #### 15. Create a new service provider class
@@ -312,7 +261,7 @@ php artisan package:make-repository TestRepository ACME/TestPackage --force
 This command will create a new service provider class in '**packages/ACME/TestPackage/src/Providers**' directory.
 
 ~~~php
-php artisan package:make-provider TestServiceProvider ACME/TestPackage
+php artisan bagisto:make-provider TestServiceProvider ACME/TestPackage
 ~~~
 
 ##### Create a new service provider with force command
@@ -320,7 +269,7 @@ php artisan package:make-provider TestServiceProvider ACME/TestPackage
 If service provider class already present then you can use force command for overwriting.
 
 ~~~php
-php artisan package:make-provider TestServiceProvider ACME/TestPackage --force
+php artisan bagisto:make-provider TestServiceProvider ACME/TestPackage --force
 ~~~
 
 #### 16. Create a new event class
@@ -328,7 +277,7 @@ php artisan package:make-provider TestServiceProvider ACME/TestPackage --force
 This command will create a new event class in '**packages/ACME/TestPackage/src/Events**' directory.
 
 ~~~php
-php artisan package:make-event TestEvent ACME/TestPackage
+php artisan bagisto:make-event TestEvent ACME/TestPackage
 ~~~
 
 ##### Create a new event with force command

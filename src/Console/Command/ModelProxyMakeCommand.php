@@ -9,7 +9,7 @@ class ModelProxyMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-model-proxy {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:model-proxy {name} {parent-package} {--force}';
 
     /**
      * The console command description.

@@ -9,7 +9,7 @@ class DatagridMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:datagrid {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:datagrid {name} {parent-package} {--force}';
 
     /**
      * The console command description.

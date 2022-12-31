@@ -11,7 +11,7 @@ class ShopControllerMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:controller {name} {parent-package} {package} {--force}';
+    protected $signature = 'bagisto:make:controller {name} {parent-package} {package} {--force}';
 
     /**
      * The console command description.

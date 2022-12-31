@@ -9,7 +9,7 @@ class ShippingPackageMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-shipping-method {package} {--force}';
+    protected $signature = 'bagisto:make-shipping-method {package} {--force}';
 
     /**
      * The console command description.

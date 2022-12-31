@@ -9,7 +9,7 @@ class PaymentPackageMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:make-payment-method {package} {--force}';
+    protected $signature = 'bagisto:make-payment-method {package} {--force}';
 
     /**
      * The console command description.

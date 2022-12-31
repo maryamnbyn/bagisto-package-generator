@@ -9,7 +9,7 @@ class EventMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:event {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:event {name} {parent-package} {--force}';
 
     /**
      * The console command description.

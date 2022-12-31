@@ -9,7 +9,7 @@ class SeederMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:seeder {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:seeder {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -33,7 +33,7 @@ class SeederMakeCommand extends MakeCommand
     {
         return [
             'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Database/Seeders'),
-            'CLASS'     => $this->getClassName(),
+            'CLASS'     => $this->getClassName().'TableSeeder',
         ];
     }
 

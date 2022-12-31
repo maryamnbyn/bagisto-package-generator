@@ -9,7 +9,7 @@ class ModelMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:model {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:model {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -24,18 +24,6 @@ class ModelMakeCommand extends MakeCommand
     public function handle()
     {
         parent::handle();
-
-        $this->call('package:make-model-proxy', [
-            'name'    => $this->argument('name') . 'Proxy',
-            'parent-package' => $this->argument('parent-package'),
-            '--force' => $this->option('force'),
-        ]);
-
-        $this->call('package:make-model-contract', [
-            'name'    => $this->argument('name'),
-            'parent-package' => $this->argument('parent-package'),
-            '--force' => $this->option('force'),
-        ]);
     }
 
     /**

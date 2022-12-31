@@ -9,7 +9,7 @@ class RepositoryMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'package:repository {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:repository {name} {parent-package} {--force}';
 
     /**
      * The console command description.
@@ -33,7 +33,7 @@ class RepositoryMakeCommand extends MakeCommand
     {
         return [
             'NAMESPACE'      => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Repositories'),
-            'CLASS'          => $this->getClassName(),
+            'CLASS'          => $this->getClassName().'Repository',
             'CONTRACT_CLASS' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Contracts/' . $this->getContractName()),
         ];
     }
