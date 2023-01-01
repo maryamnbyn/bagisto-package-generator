@@ -113,6 +113,8 @@ class PackageGenerator
             'migration' => 'Database/Migrations',
             'seeder' => 'Database/Seeders',
             'contracts' => 'Contracts',
+            'services' => 'Services',
+            'exceptions' => 'Exceptions',
             'model' => 'Models',
             'provider' => 'Providers',
             'repository' => 'Repositories',
