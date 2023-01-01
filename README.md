@@ -72,7 +72,7 @@ Below are the list of commands,
 For e.g., If you want to create a package which named as '**TestPackage**', and all dependency then you need to use the command like this,
 
 ~~~php
-php artisan bagisto:make:all name parent-package ACME/TestPackage
+php artisan bagisto:make:all name package ACME/TestPackage
 ~~~
 
 ##### New package with force command

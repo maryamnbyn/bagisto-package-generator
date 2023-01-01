@@ -9,7 +9,7 @@ class CommandMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:command {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:command {name} {package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class CommandMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace('Webkul'.$this->argument('parent-package') . '/Console/Commands'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul'.$this->argument('package') . '/Console/Commands'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,7 +42,7 @@ class CommandMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Console/Commands';
+        $path = base_path('packages/Webkul/' . $this->argument('package')) . '/src/Console/Commands';
 
         return $path . '/' . $this->getClassName() . 'Command.php';
     }

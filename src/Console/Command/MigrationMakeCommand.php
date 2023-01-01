@@ -9,7 +9,7 @@ class MigrationMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:migration {name} {parent-package}';
+    protected $signature = 'bagisto:make:migration {name} {package}';
 
     /**
      * The console command description.
@@ -25,7 +25,7 @@ class MigrationMakeCommand extends MakeCommand
     {
         $this->call('make:migration', [
             'name' => $this->argument('name').'s_table',
-            '--path' => 'packages/Webkul/' . $this->argument('parent-package') . '/src/Database/Migrations',
+            '--path' => 'packages/Webkul/' . $this->argument('package') . '/src/Database/Migrations',
         ]);
     }
 }

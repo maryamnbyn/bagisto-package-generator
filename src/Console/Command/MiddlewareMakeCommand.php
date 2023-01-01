@@ -9,7 +9,7 @@ class MiddlewareMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:middleware {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:middleware {name} {package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class MiddlewareMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Http/Middleware'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('package') . '/Http/Middleware'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,7 +42,7 @@ class MiddlewareMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Http/Middleware';
+        $path = base_path('packages/Webkul/' . $this->argument('package')) . '/src/Http/Middleware';
 
         return $path . '/' . $this->getClassName() . '.php';
     }

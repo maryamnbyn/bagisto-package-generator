@@ -2,14 +2,14 @@
 
 namespace Webkul\PackageGenerator\Console\Command;
 
-class RequestMakeCommand extends MakeCommand
+class ShopRequestMakeCommand extends MakeCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:request {name} {package} {--force}';
+    protected $signature = 'bagisto:make:shop-request {name} {package} {--force}';
 
     /**
      * The console command description.

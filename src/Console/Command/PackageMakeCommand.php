@@ -11,7 +11,7 @@ class PackageMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:all {name} {parent-package?} {package?} {--plain}  {--force}';
+    protected $signature = 'bagisto:make:all {name} {package} {--plain}  {--force}';
 
     /**
      * The console command description.
@@ -27,7 +27,6 @@ class PackageMakeCommand extends MakeCommand
     {
         $this->packageGenerator->setConsole($this)
             ->setName($this->argument('name'))
-            ->setParentPackage($this->argument('parent-package'))
             ->setPackage($this->argument('package'))
             ->setPlain($this->option('plain'))
             ->setForce($this->option('force'))

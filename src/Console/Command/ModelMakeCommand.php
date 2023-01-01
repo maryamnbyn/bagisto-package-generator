@@ -9,7 +9,7 @@ class ModelMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:model {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:model {name} {package} {--force}';
 
     /**
      * The console command description.
@@ -40,8 +40,8 @@ class ModelMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'PACKAGE'   => $this->getClassNamespace($this->argument('parent-package')),
-            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Models'),
+            'PACKAGE'   => $this->getClassNamespace($this->argument('package')),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('package') . '/Models'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -51,7 +51,7 @@ class ModelMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Models';
+        $path = base_path('packages/Webkul/' . $this->argument('package')) . '/src/Models';
 
         return $path . '/' . $this->getClassName() . '.php';
     }

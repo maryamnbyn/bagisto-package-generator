@@ -9,7 +9,7 @@ class NotificationMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:notification {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:notification {name} {package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class NotificationMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Notifications'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('package') . '/Notifications'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,7 +42,7 @@ class NotificationMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Notifications';
+        $path = base_path('packages/Webkul/' . $this->argument('package')) . '/src/Notifications';
 
         return $path . '/' . $this->getClassName() . '.php';
     }

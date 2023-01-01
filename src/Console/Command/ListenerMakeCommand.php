@@ -9,7 +9,7 @@ class ListenerMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:listener {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:listener {name} {package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class ListenerMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Listeners'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('package') . '/Listeners'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,7 +42,7 @@ class ListenerMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Listeners';
+        $path = base_path('packages/Webkul/' . $this->argument('package')) . '/src/Listeners';
 
         return $path . '/' . $this->getClassName() . '.php';
     }

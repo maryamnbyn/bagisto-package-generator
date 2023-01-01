@@ -9,7 +9,7 @@ class RepositoryMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:repository {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:repository {name} {package} {--force}';
 
     /**
      * The console command description.
@@ -32,9 +32,9 @@ class RepositoryMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE'      => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Repositories'),
+            'NAMESPACE'      => $this->getClassNamespace('Webkul/'.$this->argument('package') . '/Repositories'),
             'CLASS'          => $this->getClassName().'Repository',
-            'CONTRACT_CLASS' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Contracts/' . $this->getContractName()),
+            'CONTRACT_CLASS' => $this->getClassNamespace('Webkul/'.$this->argument('package') . '/Contracts/' . $this->getContractName()),
         ];
     }
 
@@ -43,7 +43,7 @@ class RepositoryMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Repositories';
+        $path = base_path('packages/Webkul/' . $this->argument('package')) . '/src/Repositories';
 
         return $path . '/' . $this->getClassName() . 'Repository.php';
     }

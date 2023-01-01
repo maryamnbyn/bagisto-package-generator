@@ -9,7 +9,7 @@ class EventMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:event {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:event {name} {package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class EventMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Events'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('package') . '/Events'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,7 +42,7 @@ class EventMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Events';
+        $path = base_path('packages/Webkul/' . $this->argument('package')) . '/src/Events';
 
         return $path . '/' . $this->getClassName() . 'Event.php';
     }

@@ -9,7 +9,7 @@ class DatagridMakeCommand extends MakeCommand
      *
      * @var string
      */
-    protected $signature = 'bagisto:make:datagrid {name} {parent-package} {--force}';
+    protected $signature = 'bagisto:make:datagrid {name} {package} {--force}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ class DatagridMakeCommand extends MakeCommand
     protected function getStubVariables()
     {
         return [
-            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('parent-package') . '/Datagrids'),
+            'NAMESPACE' => $this->getClassNamespace('Webkul/'.$this->argument('package') . '/Datagrids'),
             'CLASS'     => $this->getClassName(),
         ];
     }
@@ -42,7 +42,7 @@ class DatagridMakeCommand extends MakeCommand
      */
     protected function getSourceFilePath()
     {
-        $path = base_path('packages/Webkul/' . $this->argument('parent-package')) . '/src/Datagrids';
+        $path = base_path('packages/Webkul/' . $this->argument('package')) . '/src/Datagrids';
 
         return $path . '/' . $this->getClassName() . '.php';
     }
