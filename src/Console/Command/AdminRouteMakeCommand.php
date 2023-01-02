@@ -47,7 +47,7 @@ class AdminRouteMakeCommand extends MakeCommand
     {
         $this->info("Route Created : Please add your route to the api.php");
 
-        $path = base_path('packages/Webkul/Admin/src/Routes/'.$this->argument('package'));
+        $path = base_path('packages/Webkul/Admin/src/Routes/');
 
         return $path.'/'.$this->argument('name').'.php';
     }
